@@ -20,7 +20,7 @@
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
                                     <div class="card-header"><h3 class="text-center font-weight-light my-4">Create Account</h3></div>
                                     <div class="card-body">
-                                        <form>
+                                        <form id="reg-form" >
                                             <div class="row mb-3">
                                                 <div class="col-md-6">
                                                     <div class="form-floating mb-3 mb-md-0">
@@ -44,7 +44,7 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-floating mb-3 mb-md-0">
-                                                        <input class="form-control" id="inputFirstName" type="text" placeholder="Enter your user name" />
+                                                        <input class="form-control" id="inputDescription" type="text" placeholder="Enter your user name" />
                                                         <label for="inputFirstName">Destination</label>
                                                     </div>
                                                 </div>
@@ -52,7 +52,7 @@
                                             <div class="row mb-3">
                                                 <div class="col-md-6">
                                                     <div class="form-floating mb-3 mb-md-0">
-                                                        <input class="form-control" id="Number" type="text" placeholder="Enter your phone Number" />
+                                                        <input class="form-control" id="inputContact" type="text" placeholder="Enter your phone Number" />
                                                         <label for="inputPassword">Contact</label>
                                                     </div>
                                                 </div>
@@ -91,7 +91,7 @@
                                                   </div>
                                             </div>
                                             <div class="mt-4 mb-0">
-                                                <div class="d-grid"><a class="btn btn-primary btn-block" href="login.html">Create Account</a></div>
+                                                <div class="d-grid"><a class="btn btn-primary btn-block" onclick="pushData('alavi')" >Create Account</a></div>
                                             </div>
                                         </form>
                                     </div>
@@ -121,5 +121,41 @@
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="js/scripts.js"></script>
+        <script>
+            function pushData() {
+                var name = document.getElementById('inputFirstName').value;
+                var password = document.getElementById('inputPassword').value;
+                var description = document.getElementById('inputDescription').value;
+                var contact = document.getElementById('inputContact').value;
+                var email = document.getElementById('inputEmail').value;
+        
+                var data = {
+                    name: name,
+                    password: password,
+                    description: description,
+                    contact: contact,
+                    email: email
+                };
+        
+                console.log(data);
+        
+                fetch("http://127.0.0.1:8080/user/register", {
+                    method: "POST",
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // Handle the response from the server if needed
+                    console.log("Response from server:", data);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            }
+        </script>
+        
     </body>
 </html>

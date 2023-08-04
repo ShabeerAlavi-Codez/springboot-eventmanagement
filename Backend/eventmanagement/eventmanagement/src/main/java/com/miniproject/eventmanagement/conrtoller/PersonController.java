@@ -14,7 +14,7 @@ import com.miniproject.eventmanagement.servies.PersonServies;
 
 
 @RestController
-@RequestMapping("/student")
+@RequestMapping("/alavi")
 public class PersonController{
     private final PersonServies personService;
     @Autowired
@@ -25,6 +25,7 @@ public class PersonController{
     @CrossOrigin
     @GetMapping()
     public List<Person> getAllPersons() {
+        System.out.println("print  alaviiiresutttttttttttttttttttttttttttttttttttttt");
         return personService.getAllPersons();
     }
     // public Person get(){
