@@ -14,14 +14,6 @@ public class User{
     private Long Id;
     private String name;
     private String password;
-    public User(String name, String password, String organisation, String designation, String contact, String email) {
-        this.name = name;
-        this.password = password;
-        Organisation = organisation;
-        Designation = designation;
-        Contact = contact;
-        this.email = email;
-    }
     private String Organisation;
     private String Designation;
     private String Contact;
@@ -30,6 +22,14 @@ public class User{
     private String Description;
     private String Rating;
     private Integer TypeId;
+    public User(String name, String password, String organisation, String designation, String contact, String email) {
+        this.name = name;
+        this.password = password;
+        Organisation = organisation;
+        Designation = designation;
+        Contact = contact;
+        this.email = email;
+    }
 
     public User(){}
     public User(Long id, String name, String password, String organisation, String designation, String contact,

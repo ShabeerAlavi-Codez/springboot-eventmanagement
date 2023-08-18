@@ -2,8 +2,6 @@ package com.miniproject.eventmanagement.servies;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
-
 import com.miniproject.eventmanagement.model.*;
 import java.util.*;
 import com.miniproject.eventmanagement.repository.*;

@@ -6,3 +6,8 @@ mysql> describe Userdatas;
 | type  | varchar(10) | YES  |     | NULL    |       |
 +-------+-------------+------+-----+---------+-------+
 2 rows in set (0.04 sec)
+
+
+
+Response Types
+{id: 25, soundSystem: false, hotel: true, decoration: false, foodServies: false, …}

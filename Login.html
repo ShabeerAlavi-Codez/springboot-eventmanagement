@@ -20,7 +20,7 @@
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
                                     <div class="card-header"><h3 class="text-center font-weight-light my-4">Login</h3></div>
                                     <div class="card-body">
-                                        <form>
+                                        <form id="login">
                                             <div class="row mb-3">
                                                 <div class="col-md-6">
                                                     <div class="form-floating mb-3 mb-md-0">
@@ -34,7 +34,7 @@
                                                 </div>
                                             
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" id="inputFirstName" type="text" placeholder="Enter your user name" />
+                                                <input class="form-control" id="inputUserName" type="text" placeholder="Enter your user name" />
                                                 <label for="inputFirstName">User Name</label>
                                             </div>
                                             <div class="form-floating mb-3">
@@ -42,7 +42,7 @@
                                                 <label for="inputLastName">Password</label>
                                             </div>                                           
                                             <div class="mt-4 mb-0">
-                                                <div class="d-grid"><a class="btn btn-primary btn-block" href="register.html">Log In</a></div>
+                                                <div class="d-grid"><button class="btn btn-primary btn-block" onClick="formLog()">Log In</button></div>
                                             </div>
                                         </form>
                                     </div>
@@ -72,5 +72,64 @@
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="js/scripts.js"></script>
+        <script>
+            function test(){
+                event.preventDefault(); 
+                console.log(21216464)
+
+            }
+            function validateDataType(value, type) {
+            switch (type) {
+            case 'text':
+                // console.log("value" ,typeof value === 'string')
+                return value.length >= 1;
+            case 'password':
+                return typeof value === 'string' && value.length >= 8; // Password must be at least 8 characters long
+            default:
+                return false; // Unknown data type
+            }
+            }
+
+             function validateForm(data) {
+                console.log(data.name)
+             if (!validateDataType(data.name, 'text')) {
+              alert('Please enter username.');
+                return false;
+            }
+      
+            else if (!validateDataType(data.password, 'password')) {
+                 alert('Invalid Password');
+             return false;
+            }
+            return true;
+            }           
+            function formLog(){
+                console.log("onclick working")
+                event.preventDefault()
+                var name=document.getElementById("inputUserName").value;
+                var password=document.getElementById("inputPassword").value;
+                var logData = {
+                    name: name,
+                    password: password
+                    };
+
+                    var isValid = validateForm(logData);
+                    if (isValid) {
+                        console.log("fetch started", logData);
+                        console.log("strinh---=-=-=-=-=-= started", JSON.stringify(logData));
+                        fetch("http://127.0.0.1:8080/user/logIn", {
+                            method: "POST", // Corrected the method key
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify(logData)
+                        })
+                        .then(response => response.json())
+                        .then(res => {
+                            var id=res.id;
+                            console.log(id,"is my id")})
+                        .catch(e => console.log("error:-----", e));
+                }
+                
+            }
+        </script>
     </body>
 </html>
