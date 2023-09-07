@@ -1,2 +1,70 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+# Ignore IDE and build-related files
+.idea/
+*.iml
+*.iws
+*.ipr
+target/
+bin/
+*.class
+build/
+.gradle/
+out/
+.project
+
+# Ignore logs
+logs/
+*.log
+
+# Ignore Spring Boot application properties
+/application.properties
+/application.yml
+
+# Ignore generated files
+*.jar
+*.war
+*.zip
+
+# Ignore Maven specific files
+.mvn/
+mvnw
+mvnw.cmd
+
+# Ignore system files that might appear on Windows
+Thumbs.db
+ehthumbs.db
+
+# Ignore OS-specific files and directories
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+desktop.ini
+
+# Ignore Node.js and npm files (if you are using Node.js)
+node_modules/
+npm-debug.log
+
+# Ignore package-lock.json (if using npm v5+)
+package-lock.json
+
+# Ignore Yarn lock files (if using Yarn)
+yarn.lock
+
+# Ignore Gradle build directories
+.gradle/
+
+# Ignore Eclipse workspace files
+.metadata/
+
+# Ignore Mac .DS_Store files
+.DS_Store
+
+# Ignore IntelliJ IDEA files
+.idea/
+
+# Ignore Visual Studio Code files
+.vscode/
