@@ -27,6 +27,9 @@ public class UserServies {
     public User getUserByname(String name) {
         return userRepository.findByname(name);
     }
+    public User getUserById(Long id){
+        return userRepository.findById(id);
+    }
 
 
     ////end

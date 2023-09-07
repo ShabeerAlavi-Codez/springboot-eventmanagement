@@ -11,3 +11,19 @@ mysql> describe Userdatas;
 
 Response Types
 {id: 25, soundSystem: false, hotel: true, decoration: false, foodServies: false, …}
+
+
+
+{
+    "name": "admin",
+    "password": "login@123",
+    "email": "thaj@soc.com",
+    "profile": null,
+    "id": 22,
+    "description": "bangaluru,marathahalli",
+    "typeId": 40,
+    "contact": "8888888888",
+    "rating": null,
+    "organisation": null,
+    "designation": null
+}

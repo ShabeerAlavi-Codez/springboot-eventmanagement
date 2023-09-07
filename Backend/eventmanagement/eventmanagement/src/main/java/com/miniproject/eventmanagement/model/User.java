@@ -1,5 +1,8 @@
 package com.miniproject.eventmanagement.model;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity.BodyBuilder;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -112,7 +115,8 @@ public class User{
     public void setTypeId(Integer typeId) {
         TypeId = typeId;
     }
-    
+
+      
     
 
 }

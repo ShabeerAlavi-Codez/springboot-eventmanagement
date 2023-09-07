@@ -3,10 +3,10 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,7 +32,6 @@ public class UserController {
     @CrossOrigin
     @GetMapping("/register")
     public List<User> getAllUsers() {
-        System.out.println("*********************get******************************");
         return userServies.getAllUsers();
     }
      @CrossOrigin
@@ -62,14 +61,34 @@ public class UserController {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Login failed");
         }
     }
+    @CrossOrigin
+    @GetMapping("ids/{user}")
+    // @PathVariable Long userId
+    public User getUser(@PathVariable Long user) {
+        
+        System.out.println("in ids");
+        // Long id= Long.valueOf(user);
+        // Your logic to fetch user by userId
+        System.out.print(user);
+        User data=userServies.getUserById(user);
+        if(data!= null){
+            return data;
+        }else{
+              return null;
+        }
+       
+    }
+    
+    // public ResponseEntity<Object> getUser(@PathVariable Long userId) {
+    //     User data = userServies.getUserById(userId);
 
-
-
-
-
-
-
-  
+    //     if (data != null) {
+    //         return ResponseEntity.ok(data); // Return User object
+    //     } else {
+    //         String errorResponse = "User not found";
+    //         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorResponse);
+    //     }
     // }
+    
 
 }

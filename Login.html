@@ -9,6 +9,8 @@
         <title>Login</title>
         <link href="Admin/css/styles.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <script src="./ClientPage/script.js"></script>
+        <script>console.log(getUserId(),"grrtttt")</script>
     </head>
     <body class="bg-primary">
         <div id="layoutAuthentication">
@@ -73,11 +75,8 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="js/scripts.js"></script>
         <script>
-            function test(){
-                event.preventDefault(); 
-                console.log(21216464)
+            
 
-            }
             function validateDataType(value, type) {
             switch (type) {
             case 'text':
@@ -90,7 +89,7 @@
             }
             }
 
-             function validateForm(data) {
+            function validateForm(data) {
                 console.log(data.name)
              if (!validateDataType(data.name, 'text')) {
               alert('Please enter username.');
@@ -125,8 +124,9 @@
                         .then(response => response.json())
                         .then(res => {
                             var id=res.id;
-                            console.log(id,"is my id")})
-                        .catch(e => console.log("error:-----", e));
+                            console.log(id,"is my id");
+                            location.href=`./ClientPage/viewPics.html?${id}`;})
+                        .catch(e => {console.log("error:-----", e);alert("invalid cridentials!")});
                 }
                 
             }

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Tables - SB Admin</title>
+        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+        <link href="css/styles.css" rel="stylesheet" />
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    </head>
+    <body class="sb-nav-fixed sb-sidenav-toggled">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <!-- Navbar Brand-->
+            <a class="navbar-brand ps-3" href="index.html">Start Bootstrap</a>
+            <!-- Sidebar Toggle-->
+            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+        </nav>
+        <script src="script.js"></script>
+    <script>
+         var currentUrl = window.location.href;
+         var uId= currentUrl.split('?')[1];
+         var userData;
+         console.log("second script" ,uId)
+        setUserId(uId)
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log("fiest load")
+            fetchUserData();
+        });
+
+        async function fetchUserData() {
+            console.log("in fetch started",uId,"testttt")
+            try {
+                const response = await fetch(`http://127.0.0.1:8080/user/ids/${uId}`);
+                console.log("respo",response)
+                
+                if (response.ok) {
+                     userData = await response.json();
+                     var pLink=document.getElementById("profileLink")
+
+                     console.log("%%%%%%%%%5555555",userData,"typeeee")
+                     document.getElementById("hotel").innerHTML = `<p>hotel${userData.typeId}</p>`;
+                     var profileLink="profile.html?"+ userData.contact +"?"+userData.;
+                     pLink.href=profileLink;
+                    // console.log("sssscripttttt22222tt", getUserId(),"get user iddddd")
+                    // displayUserData(userData);
+                    console.log("okkk uzsrdata",userData)
+                } else {
+                    console.error('Error:', response.status);
+                }
+            } catch (error) {
+                console.error('Fetch Error:', error);
+            }
+        }
+        console.log("%%%%%%%%%",userData,"typeeee")
+                            // document.getElementById("hotel").innerHTML = `<p>hotel${userData.typeId}</p>`;
+                            // console.log("sssscripttttt22222tt", getUserId(),"get user iddddd")
+
+        function displayUserData(userData) {
+            const userDataDiv = document.getElementById('userData');
+            userDataDiv.textContent = JSON.stringify(userData);
+        }
+    </script>
+
+
+
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav">
+                            <div class="sb-sidenav-menu-heading">Menu</div>
+                            <a class="nav-link" id="profileLink">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Profile
+                            </a>
+                            <a class="nav-link" href="viewPics.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                                Pics
+                            </a>
+                        </div>
+                    </div>
+                    <div class="sb-sidenav-footer">
+                        <div class="small">Logged in as:</div>
+                        Start Bootstrap
+                    </div>
+                </nav>
+            </div>
+            <div id="layoutSidenav_content">
+                <div class="rounded-top text-white d-flex flex-row" style="background-color: #ea0909; height:200px;">
+                    <div class="ms-4 mt-5 d-flex flex-column" style="width: 150px">
+
+                      <img src="assets/img/country-03.jpg"
+                        alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2"
+                        style="width: 150px; z-index: 1">
+                    </div>
+                    <div class="ms-3" style="margin-top: 130px;">
+                      <h5 >Provider Namasdfdyiop;';luyutrertyuiooipiuitrre</h5>
+                      <p id="hotel">hotel</p>                     
+
+                    </div>
+                  </div>
+                <div class="p-4" style="background-color: #f8f9fa;">
+                    <!-- Gallery --><br><br>
+                    <div class="row">
+                        
+                        <div class="col-lg-4 col-md-12 mb-4 mb-lg-0" data-toggle="modal" data-target="#exampleModal">
+                            <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
+                                class="w-100 shadow-1-strong rounded mb-4" alt="" />
+                                <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
+                                class="w-100 shadow-1-strong rounded mb-4" alt="Boat on Calm Water" />
+                        </div>
+                        
+                    
+                        <div class="col-lg-4 mb-4 mb-lg-0">
+                            <img src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain2.webp"
+                                class="w-100 shadow-1-strong rounded mb-4" alt="Mountains in the Clouds" />
+                    
+                            <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
+                                class="w-100 shadow-1-strong rounded mb-4" alt="Boat on Calm Water" />
+                        </div>
+                    
+                        <div class="col-lg-4 mb-4 mb-lg-0">
+                            <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(18).webp"
+                                class="w-100 shadow-1-strong rounded mb-4" alt="Waves at Sea" />
+                    
+                            <img src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain3.webp"
+                                class="w-100 shadow-1-strong rounded mb-4" alt="Yosemite National Park" />
+                        </div>
+                                        </div>
+                                        <!-- Gallery -->
+                                        
+                </div>
+                <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted">Copyright &copy; Your Website 2023</div>
+                            <div>
+                                <a href="#">Privacy Policy</a>
+                                &middot;
+                                <a href="#">Terms &amp; Conditions</a>
+                            </div>
+                        </div>
+                    </div>
+                        <!---------------------------------new code-->
+    
+<!-- Modal -->
+<div class="modal fade"
+ id="exampleModal"
+ tabindex="-1"
+ role="dialog"
+ aria-labelledby="exampleModalLabel"
+ aria-hidden="true">
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+        <!-- Add image inside the body of modal -->
+        
+        <div class="modal-body">
+            <div class="p-4" style="background-color: #f8f9fa;">
+                <img id="image"
+                src="assets/img/banner-04.jpg"
+                alt="Click on button" />
+            </div>
+            
+        <!-- </div>
+        <div class="modal-body ms-4 mt-5 d-flex flex-column" style="width: 500px">
+
+            <img src="assets/img/country-03.jpg"
+              alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2"
+              style="width: 150px; z-index: 1">
+          </div> -->
+
+        <div class="modal-footer">
+            <button type="button"
+                    class="btn btn-secondary"
+                    data-dismiss="modal">
+                Close
+            </button>
+        </div>
+        </div>
+    </div>
+</div>
+</div>
+<!---end code-------------------------------->
+                </footer>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="js/scripts.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
+        <script src="js/datatables-simple-demo.js"></script>
+       <!-- Adding scripts to use bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity=
+"sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous">
+</script>
+<script src=
+"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity=
+"sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous">
+</script>
+<script src=
+"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity=
+"sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous">
+</script>
+    </body>
+</html>
